@@ -105,11 +105,11 @@ int main()
         MyArgv[i-1] = NULL;
 
         if(!strcmp(MyArgv[0], "ls"))
-        {
+        {//展示读取文件夹内容
             showDir();
         }
         else if(!strcmp(MyArgv[0], "cd"))
-        {
+        {//不需要！打开某个文件夹
             if(MyArgv[1] != NULL)
                 changeDir(MyArgv[1]);
             else
@@ -118,16 +118,16 @@ int main()
             }
         }
         else if(!strcmp(MyArgv[0], "mv"))
-        {
-            if(MyArgv[1] != NULL && MyArgv[2] != NULL)
-                changeName(MyArgv[1], MyArgv[2]);
+        {//修改文件名字，居然可以重名了！
+            if(MyArgv[1] != NULL && MyArgv[2] != NULL) 
+                changeName(MyArgv[1], MyArgv[2]);                                
             else
             {
                 printf("usage:mv oldname, newname\n");
             }
         }
         else if(!strcmp(MyArgv[0], "touch"))
-        {
+        {//创建文件
             if(MyArgv[1] != NULL && MyArgv[2] != NULL)
                 creatFile(MyArgv[1], atoi(MyArgv[2]));
             else
@@ -136,7 +136,7 @@ int main()
             }
         }
         else if(!strcmp(MyArgv[0], "mkdir"))
-        {
+        {//创建目录
             if(MyArgv[1] != NULL)
                 creatDir(MyArgv[1]);
             else
@@ -145,7 +145,7 @@ int main()
             }
         }
         else if(!strcmp(MyArgv[0], "rm"))
-        {
+        {//删除文件
             if(MyArgv[1] != NULL)
                 deleteFile(MyArgv[1]);
             else
@@ -154,7 +154,7 @@ int main()
             }
         }
         else if(!strcmp(MyArgv[0], "rmdir"))
-        {
+        {//删除目录
             if(MyArgv[1] != NULL)
                 deleteDir(MyArgv[1]);
             else
@@ -163,7 +163,7 @@ int main()
             }
         }
         else if(!strcmp(MyArgv[0], "my_read"))
-        {
+        {//读文件
             if(MyArgv[1] != NULL && MyArgv[2] != NULL)
                 my_read(MyArgv[1], atoi(MyArgv[2]));
             else
@@ -172,7 +172,7 @@ int main()
             }
         }
         else if(!strcmp(MyArgv[0], "my_write"))
-        {
+        {//写文件
             if(MyArgv[1] != NULL && MyArgv[2] != NULL)
                 my_write(MyArgv[1], MyArgv[2]);
             else
@@ -181,7 +181,7 @@ int main()
             }
         }
         else if(!strcmp(MyArgv[0], "exit"))
-        {
+        {//退出
             exitSystem();
             exit(0);
         }

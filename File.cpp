@@ -114,6 +114,12 @@ int changeName(char oldName[], char newName[])
         printf("file not found\n");
         return -1;
     }
+    //是否存在同名文件
+    if(findUnitInTable(currentDirTable, newName) != -1)
+    {
+        printf("file already exist\n");
+           return -1;
+    }
     strcpy(currentDirTable->dirs[unitIndex].fileName, newName);
     return 0;
 }
